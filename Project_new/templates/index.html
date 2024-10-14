@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán kết quả bóng đá</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Dự đoán kết quả trận đấu</h1>
+        <form action="/predict" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="home_team">Chọn đội nhà:</label>
+                <select name="home_team" id="home_team" class="form-control" required>
+                    <option value="">Chọn đội bóng</option>
+                    {% for team in teams %}
+                        <option value="{{ team }}">{{ team }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="away_team">Chọn đội khách:</label>
+                <select name="away_team" id="away_team" class="form-control" required>
+                    <option value="">Chọn đội bóng</option>
+                    {% for team in teams %}
+                        <option value="{{ team }}">{{ team }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Dự đoán</button>
+        </form>
+    </div>
+</body>
+</html>
